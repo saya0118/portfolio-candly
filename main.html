@@ -21,8 +21,10 @@
             <ul class="nav-right">
                 <li><img src="image/profile.png" alt=""></li>
                 <li><img src="image/search-icon.png" alt=""></li>
-                <li><img src="image/shopping.png" alt="">
-                    <span class="fs-p-cartItemNumber fs-client-cart-count fs-clientInfo is-ready fs-client-cart-count–0">1</span></li>
+                <li class="nav-cart" id="nav-cart">
+                    <img type="button" src="image/shopping.png" alt="" id="shopping-icon">
+                    <p><span id="item-count" class="fs-p-cartItemNumber fs-client-cart-count fs-clientInfo is-ready fs-client-cart-count–0">1</span> - $ <span id="nav-cart-total">10</span></p>
+                </li>
             </ul>
         </nav>
     </header>
@@ -32,32 +34,59 @@
             <p>Welcome to our world. <br>Botanical scents to delight the screens</p>
             <button>Explore our products</button>
         </div>
+        <div class="cart" id="cart">
+            <div class="title">
+                Shopping Cart
+            </div>
+            <ul id="list">
+                <li class="item">
+                    <div class="image">
+                        <img id="item-img" src="image/bannon-morrissy-aoanIH-Brq4-unsplash.jpg" alt="">
+                    </div>
+                    <div class="discription">
+                        <span>Product</span><br>
+                        <span>$<span id="item-price">30</span></span>
+                    </div>
+                    <div class="delete"> 
+                        <button class="delete-button" type="button" name="button">
+                            <img src="image/DeleteFilled.png" alt="">
+                        </button>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="total-price" id="total-price">
+                <span>Total $</span>
+                <span id="total-price">30</span>
+            </div>
+
+        </div>
     </main>
     <section class="ourstory">
         <h2 class="ourstory-title">OUR STORY</h2>
-        <p class="ourstory-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic vero distinctio voluptas? Rem debitis obcaecati commodi voluptas nihil modi vel quisquam! Doloribus dolores blanditiis facere quo minus nam nemo ut?</p>
+        <p class="ourstory-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic vero distinctio voluptas? Rem debitis obcaecati commodi voluptas nihil modi vel quisquam! Doloribus dolores blanditiis facere quo minus nam nemo ut? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio maxime nesciunt minus assumenda iste excepturi molestias odit fugit nobis corporis eos, sit sed voluptas, optio voluptatum officia. Odit, culpa rerum.</p>
     </section>
     <section class="feature">
         <ul>
             <li>
                 <img src="image/Water.png" alt="water">
-                <title>PARAFFIN-FREE</title>
+                <h2>PARAFFIN-FREE</h2>
             </li>
             <li>
                 <img src="image/Leaf.png" alt="vegan">
-                <title>100%-VEGAN</title>
+                <h2>100%-VEGAN</h2>
             </li>
             <li>
                 <img src="image/CanadianMapleLeaf (1).png" alt="canada">
-                <title>MADE IN CANADA</title>
+                <h2>MADE IN CANADA</h2>
             </li>
             <li>
-                <img src="image/Chemistry.png" alt="chemistry">
-                <title>PHTHALATE-FREE</title>
+                <img src="image/beaker-outline.png" alt="chemistry">
+                <h2>PHTHALATE-FREE</h2>
             </li>
             <li>
                 <img src="image/Earth.png" alt="earth">
-                <title>SUSTAINABLE</title>
+                <h2>SUSTAINABLE</h2>
             </li>
         </ul>
     </section>
@@ -65,111 +94,96 @@
         <h2>COLLECTION</h2>
         <div class="collection-contents">
             <ul>
-                <li>
+                <li id="collection-item" class="collection-item">
                     <img src="image/bannon-morrissy-aoanIH-Brq4-unsplash.jpg" alt="">
-                    <h3>Product</h3><p>$30</p>
-                    <select name="num" id="num" class="num">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <td><input type="submit" value="add to bag" onclick="clickEvent()"></td>
+                    <h3 id="product-name">Product</h3>
+                    <p id="price">$
+                        <span id="collection-price">45</span>
+                    </p>
+                    <span id="add" class="add">
+                        <input type="submit" value="add to bag" onclick="clickEvent()" class="add-img">
+                    </span>
                 </li>
-                <li>
+                <li id="collection-item" class="collection-item">
                     <img src="image/hanna-balan-ikFxZsZflNw-unsplash.jpg" alt="">
-                    <h3>Product</h3><p>$30</p>
-                    <select name="num" id="num" class="num">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <td><input type="submit" value="add to bag" onclick="clickEvent()"></td>
+                    <h3 id="product-name">Product</h3>
+                    <p id="price">$
+                        <span id="collection-price">30</span>
+                    </p>
+                    <span id="add" class="add">
+                        <input type="submit" value="add to bag" onclick="clickEvent()" class="add-img">
+                    </span>
                 </li>
-                <li>
+                <li id="collection-item" class="collection-item">
                     <img src="image/hanna-balan-W-CDfBfMCzQ-unsplash.jpg" alt="">
-                    <h3>Product</h3><p>$30</p>
-                    <select name="num" id="num" class="num">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <td><input type="submit" value="add to bag" onclick="clickEvent()"></td>
+                    <h3 id="product-name">Product</h3>
+                    <p id="price">$
+                        <span id="collection-price">25</span>
+                    </p>
+                    <span id="add" class="add">
+                        <input type="submit" value="add to bag" onclick="clickEvent()" class="add-img">
+                    </span>
                 </li>
-                <li>
+                <li id="collection-item" class="collection-item">
                     <img src="image/julia-androshchuk-Y98LjDhW9S4-unsplash.jpg" alt="">
-                    <h3>Product</h3><p>$30</p>
-                    <select name="num" id="num" class="num">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <td><input type="submit" value="add to bag" onclick="clickEvent()"></td>
+                    <h3 id="product-name">Product</h3>
+                    <p id="price">$
+                        <span id="collection-price">35</span>
+                    </p>
+                    <span id="add" class="add">
+                        <input type="submit" value="add to bag" onclick="clickEvent()" class="add-img">
+                    </span>
                 </li>
             </ul>
             <ul>
-                <li>
+                <li id="collection-item" class="collection-item">
                     <img src="image/martipaan-QagIzHwsy4A-unsplash.jpg" alt="">
-                    <h3>Product</h3><p>$30</p>
-                    <select name="num" id="num" class="num">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <td><input type="submit" value="add to bag" onclick="clickEvent()"></td>
+                    <h3 id="product-name">Product</h3>
+                    <p id="price">$
+                        <span id="collection-price">30</span>
+                    </p>
+                    <span id="add" class="add">
+                        <input type="submit" value="add to bag" onclick="clickEvent()" class="add-img">
+                    </span>
                 </li>
-                <li>
+                <li id="collection-item" class="collection-item">
                     <img src="image/simon-tackaert-PC04Fvgwmrs-unsplash.jpg" alt="">
-                    <h3>Product</h3><p>$30</p>
-                    <select name="num" id="num" class="num">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <td><input type="submit" value="add to bag" onclick="clickEvent()"></td>
+                    <h3 id="product-name">Product</h3>
+                    <p id="price">$
+                        <span id="collection-price">20</span>
+                    </p>
+                    <span id="add" class="add">
+                        <input type="submit" value="add to bag" onclick="clickEvent()" class="add-img">
+                    </span>
                 </li>
-                <li>
+                <li id="collection-item" class="collection-item">
                     <img src="image/mediamodifier-G5LVF0EW9CI-unsplash.jpg" alt="">
-                    <h3>Product</h3><p>$30</p>
-                    <select name="num" id="num" class="num">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <td><input type="submit" value="add to bag" onclick="clickEvent()"></td>
+                    <h3 id="product-name">Product</h3>
+                    <p id="price">$
+                        <span id="collection-price">30</span>
+                    </p>
+                    <span id="add" class="add">
+                        <input type="submit" value="add to bag" onclick="clickEvent()" class="add-img">
+                    </span>
                 </li>
-                <li>
-                    <img src="image/svitlana-cNmK8LYCRjc-unsplash.jpg" alt="">
-                    <h3>Product</h3><p>$30</p>
-                    <select name="num" id="num" class="num">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <td><input type="submit" value="add to bag" onclick="clickEvent()"></td>
+                <li id="collection-item" class="collection-item">
+                    <img src="image/svitlana-cNmK8LYCRjc-unsplash.jpg" alt="" id="img">
+                    <h3 id="product-name">Product</h3>
+                    <p id="price">$
+                        <span id="collection-price">40</span>
+                    </p>
+                    <span id="add" class="add">
+                        <input type="submit" value="add to bag" onclick="clickEvent()" class="add-img">
+                    </span>
                 </li>
             </ul>
         </div>
-        <footer>
-            
-        </footer>
     </section>
-
+        <footer>
+            <h2>@CANDLY.co</h2>
+        </footer>
+    
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="main.js"></script>
 </body>
 </html>
