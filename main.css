@@ -300,6 +300,7 @@ footer h2{
 .description span{
     display: block;
     font-size: 20px;
+    float: right;
 }
 
 .delete{
