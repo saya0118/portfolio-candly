@@ -1,59 +1,53 @@
+function clickEvent() {
+	alert('New item was added your cart!');
+}
 
-function clickEvent(){
-    alert("New item was added your cart!");
-};
+(function () {
+	const carInfo = document.getElementById('nav-cart');
+	const cart = document.getElementById('cart');
 
-(function(){
-    const carInfo = document.getElementById('nav-cart');
-    const cart = document.getElementById('cart');
-
-    carInfo.addEventListener('click', function(){
-        cart.classList.toggle("show-cart");
-    });
+	carInfo.addEventListener('click', function () {
+		cart.classList.toggle('show-cart');
+	});
 })();
-
 
 // add items to the cart
 
-(function(){
+(function () {
+	const addBtn = document.querySelectorAll('.add');
 
-    const addBtn = document.querySelectorAll('.add');
+	addBtn.forEach(function (btn) {
+		btn.addEventListener('click', function (event) {
+			// console.log(event.target)
 
-    addBtn.forEach(function(btn){
-        btn.addEventListener('click', function(event){
+			if (event.target.parentElement.classList.contains('add')) {
+				let fullPath = event.target.parentElement.parentElement.firstElementChild.src;
+				let pos = fullPath.indexOf('image') + 5;
+				let partPath = fullPath.slice(pos);
 
-            // console.log(event.target)
+				// console.log(fullPath);
 
-        if(event.target.parentElement.classList.contains('add')){
-            
-            
-            let fullPath = event.target.parentElement.parentElement.firstElementChild.src;
-            let pos = fullPath.indexOf('image')+5;
-            let partPath = fullPath.slice(pos);
+				const item = {};
+				item.img = `image${partPath}`;
 
-            // console.log(fullPath);
+				let name = event.target.parentElement.parentElement.children[1].textContent;
+				item.name = name;
 
-            const item = {};
-            item.img = `image${partPath}`;
-            
-            let name = event.target.parentElement.parentElement.children[1].textContent;
-            item.name = name;
-            
-            let price = event.target.parentElement.parentElement.children[2].children[0].textContent;
+				let price = event.target.parentElement.parentElement.children[2].children[0].textContent;
 
-            // let finalPrice = price.slice(1).trim();
-            item.price = price;
+				// let finalPrice = price.slice(1).trim();
+				item.price = price;
 
-            console.log(price)
+				console.log(price);
 
-            console.log(name);
+				console.log(name);
 
-            console.log(item);
+				console.log(item);
 
-            const cartList = document.createElement('li');
-            cartList.classList.add('item');
+				const cartList = document.createElement('li');
+				cartList.classList.add('item');
 
-            cartList.innerHTML = `
+				cartList.innerHTML = `
                     <div class="image">
                         <img id="item-img" src="${item.img}" alt="">
                     </div>
@@ -68,36 +62,67 @@ function clickEvent(){
                     </div>
             `;
 
-            //select cart
-            const cart = document.getElementById('cart');
-            const total = document.querySelector('.total-price');
-            cart.insertBefore(cartList, total);
-            showTotals();
-            
-            }
-        });
-    });  
+				//select cart
+				const cart = document.getElementById('cart');
+				const total = document.querySelector('.total-price');
+				cart.insertBefore(cartList, total);
+				showTotals();
+			}
+		});
+	});
 
-//show totals
+	//show totals
 
-    function showTotals(){
-    const total = [];
-    const items = document.getElementById('collection-price');
+	function showTotals() {
+		const total = [];
+		const items = document.querySelectorAll('#collection-price');
 
-    items.forEach(function(item){
-        total.push(parseFloat(item.textContent));
-    });
-    // console.log(total);
+		items.forEach(function (item) {
+			total.push(parseFloat(item.textContent));
+		});
+		// console.log(total);
 
-    const totalPrice = total.reduce(function(total,item){
-        total += item;
-        return total;
-    },0);
-    const finalPrice = totalPrice.toFixed(2);
-    // console.log(finalPrice);
+		const totalPrice = total.reduce(function (total, item) {
+			total += item;
+			return total;
+		}, 0);
+		const finalPrice = totalPrice.toFixed(2);
+		// console.log(finalPrice);
 
-    document.getElementById('total-price').textContent = finalPrice;
-    document.getElementById('nav-cart-total').textContent = finalPrice;
-    document.getElementById('item-count').textContent = total.length;
-}
+		document.getElementById('total-price').textContent = finalPrice;
+		document.getElementById('nav-cart-total').textContent = finalPrice;
+		document.getElementById('item-count').textContent = total.length;
+	}
+
+	var removeBtn = document.querySelector('.delete-button');
+	for (let i = 0; i < removeBtn.length; i++) {
+		var button = removeBtn[i];
+		button.addEventListener('click', removeCartItem);
+	}
+
+	function removeCartItem(event) {
+		var buttonClicked = event.target;
+		buttonClicked.allSiblings.remove();
+		showTotals();
+	}
 })();
+
+function removeItem() {
+	// var removeBtn = document.querySelector('.delete-button');
+	// for (let i = 0; i < removeBtn.length; i++) {
+	// 	var button = removeBtn[i];
+	// 	button.addEventListener('click', removeCartItem);
+	// }
+
+	// function removeCartItem(event) {
+	// 	var buttonClicked = event.target;
+	// 	buttonClicked.allSiblings.remove();
+	// 	showTotals();
+	// }
+}
+
+// function removeCartItem(event){
+//     var buttonClicked = event.target
+//     buttonClicked.allSiblings.remove()
+//     showTotals()
+// }
