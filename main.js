@@ -53,7 +53,7 @@ function clickEvent() {
                     </div>
                     <div class="description">
                         <span>${item.name}</span><br>
-                        <span>$<span id="item-price">${item.price}</span></span>
+                        <p>$<span id="item-price">${item.price}</span></p>
                     </div>
                     <div class="delete"> 
                         <button class="delete-button" type="button" name="button">
@@ -66,7 +66,9 @@ function clickEvent() {
 				const cart = document.getElementById('cart');
 				const total = document.querySelector('.total-price');
 				cart.insertBefore(cartList, total);
-				showTotals();
+                showTotals();
+                
+                addRemoveListeners();
 			}
 		});
 	});
@@ -75,7 +77,7 @@ function clickEvent() {
 
 	function showTotals() {
 		const total = [];
-		const items = document.querySelectorAll('#collection-price');
+        const items = document.querySelectorAll('#item-price');
 
 		items.forEach(function (item) {
 			total.push(parseFloat(item.textContent));
@@ -92,37 +94,46 @@ function clickEvent() {
 		document.getElementById('total-price').textContent = finalPrice;
 		document.getElementById('nav-cart-total').textContent = finalPrice;
 		document.getElementById('item-count').textContent = total.length;
-	}
+    }
+    
+    function addRemoveListeners(){
 
-	var removeBtn = document.querySelector('.delete-button');
+	var removeBtn = document.querySelectorAll('.delete-button');
 	for (let i = 0; i < removeBtn.length; i++) {
-		var button = removeBtn[i];
-		button.addEventListener('click', removeCartItem);
-	}
+		removeBtn[i].addEventListener('click', removeCartItem);
+    }
+
+    console.log(removeBtn)
+    
 
 	function removeCartItem(event) {
-		var buttonClicked = event.target;
-		buttonClicked.allSiblings.remove();
+        console.log(event.target);
+        var parentLi = event.target.parentElement.parentElement.parentElement;
+        parentLi.remove();
 		showTotals();
-	}
-})();
-
-function removeItem() {
-	// var removeBtn = document.querySelector('.delete-button');
-	// for (let i = 0; i < removeBtn.length; i++) {
-	// 	var button = removeBtn[i];
-	// 	button.addEventListener('click', removeCartItem);
-	// }
-
-	// function removeCartItem(event) {
-	// 	var buttonClicked = event.target;
-	// 	buttonClicked.allSiblings.remove();
-	// 	showTotals();
-	// }
+    }
 }
-
+})();
 // function removeCartItem(event){
 //     var buttonClicked = event.target
 //     buttonClicked.allSiblings.remove()
 //     showTotals()
 // }
+
+// window.onload = function(){
+//     scroll_effect();
+//     $(window).scroll(function(){
+//         scroll_effect();
+//     });
+
+//     function scroll(){
+//         $('.effect-fade').each(function(){
+//             var elementPos = $(this).offset().top;
+//             var move = $(window).scrollTop();
+//             var windowHeight = $(window).height();
+//             if(scroll>elementPos - windowHeight){
+//                 $(this).addClass('effect-scroll');
+//             }
+//         });
+//     }
+// };

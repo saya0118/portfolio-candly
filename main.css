@@ -114,9 +114,11 @@ main{
     border: none;
     width: 200px;
     height: 60px;
-    border-radius: 23% 77% 31% 69% / 63% 25% 75% 37% ;
+    border-radius: 25% 80% 21% 70% / 63% 25% 65% 37% ;
     cursor: pointer;
     transition: all 2s;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);;
+    border-bottom: 5px solid #b84c00;
 }
 
 .main-contents button:hover{
@@ -215,19 +217,50 @@ main img{
     object-fit: cover;
 }
 
-.collection-contents h3{
+.collection-item h3{
     float: left;
+    padding-left: 10%;
 }
 
-.collection-contents input:hover{
+.collection-item input:hover{
     cursor: pointer;
 
 }
 
-/* .collection-contents p{
+.collection-item p{
+    font-size: 18px;
     float: left;
-} */
+    padding-left: 10px;
+    font-family:'Times New Roman', Times, serif;
+}
 
+.add{
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    float: right;
+    font-size: 15px;
+    height: 60px;
+    cursor: pointer;
+    /* transition: all 2s; */
+}
+
+.add-img{
+    border-radius: 2rem;
+    box-shadow:0px 2px 4px  rgba(107, 56, 23, 0.8);
+    font-size: 15px;
+    height: 25px;
+    width: 90px;
+    background-color: bisque;
+    color:#b84c00;
+    border: none;
+    font-family:'Times New Roman', Times, serif;
+    transition: 0.5s;
+}
+
+.add-img:hover{
+    box-shadow:0px 0px 2px  rgba(107, 56, 23, 0.8);
+}
 /* End of collection */
 
 /* Footer */
@@ -238,19 +271,18 @@ footer{
 }
 
 footer h2{
+    padding-top: 30px;
     font-size: 15px;
     float: right;
-    margin-right: 10%;
+    margin-right: 3%;
 }
 
 /* End of footer */
 
 /* shopping cart */
 .cart{
-    /* float: right; */
     width: 0;
-    min-height: 18rem;
-    /* margin: 80px auto; */
+    min-height: 100px;
     background-color: lightgray;
     position: absolute;
     display: flex;
@@ -262,8 +294,9 @@ footer h2{
 }
 
 .show-cart{
-    width: 30%;
+    width: 20%;
     padding: 2rem 1.5rem;
+    height: auto;
 }
 
 .title{
@@ -277,7 +310,7 @@ footer h2{
     margin-top: 30px;
     width: 80%;
     justify-content: center;
-    height: 120px;
+    height: 80px;
     display: flex;
     flex-direction: row;
 }
@@ -334,7 +367,8 @@ footer h2{
 
 .total-price{
     font-size: 25px;
-    margin-left: 70%;
+    margin-left: 60%;
     margin-bottom: 50px;
     border-bottom: 1px solid #000;
+    float: right;
 }
