@@ -114,26 +114,3 @@ function clickEvent() {
     }
 }
 })();
-// function removeCartItem(event){
-//     var buttonClicked = event.target
-//     buttonClicked.allSiblings.remove()
-//     showTotals()
-// }
-
-// window.onload = function(){
-//     scroll_effect();
-//     $(window).scroll(function(){
-//         scroll_effect();
-//     });
-
-//     function scroll(){
-//         $('.effect-fade').each(function(){
-//             var elementPos = $(this).offset().top;
-//             var move = $(window).scrollTop();
-//             var windowHeight = $(window).height();
-//             if(scroll>elementPos - windowHeight){
-//                 $(this).addClass('effect-scroll');
-//             }
-//         });
-//     }
-// };

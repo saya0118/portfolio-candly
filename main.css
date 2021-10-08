@@ -48,7 +48,7 @@ nav{
     margin: 0;
     list-style: none;
     overflow: hidden;
-    width: 260px;
+    width: 270px;
     float: right;
 }
 
@@ -56,6 +56,10 @@ nav{
     width: 80px;
     justify-content: space-around;
     float: left;
+}
+
+.nav-right p{
+    float: right;
 }
 
 .nav-cart{
